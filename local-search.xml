@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>记录一次Linux ToGo</title>
+    <link href="/2024/05/24/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1Linux-ToGo/"/>
+    <url>/2024/05/24/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1Linux-ToGo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Linux-togo"><a href="#Linux-togo" class="headerlink" title="Linux togo"></a>Linux togo</h1><p>把linux装进U盘或者移动硬盘，随时在不同的PC启动是一件很酷的事。</p><h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>在移动硬盘&#x2F;U盘上安装ubuntu很简单，Google搜索一下按照步骤一步一步走就行了，但是有一个小坑：他会给把efi分区写入原有的硬盘上，而移动硬盘上的efi分区里什么都没有。虽然在安装ubuntu的机器上可以启动ubuntu,但是移动硬盘插入其他电脑根本无法识别到这块移动硬盘上能够启动ubuntu。</p><h2 id="解决方案1"><a href="#解决方案1" class="headerlink" title="解决方案1"></a>解决方案1</h2><p>在网上查到的第一个相关的<a href="https://www.makeuseof.com/install-ubuntu-on-usb-drive/">解决方案</a>:<br>他的方法是把主机上有关ubuntu的efi文件复制到移动硬盘的efi分区里 ,这样做虽然其他电脑上能识别出这块移动硬盘安装了ubuntu,但是启动的时候会卡很久然后启动失败, 我猜测是UUID之类的设置得有一些问题.</p><h2 id="解决方案2-成功解决"><a href="#解决方案2-成功解决" class="headerlink" title="解决方案2(成功解决):"></a>解决方案2(成功解决):</h2><p>在移动硬盘上安装好ubuntu系统后，安装并运行boot-repair工具,这样就能正确更新移动硬盘的efi分区,拿着这块移动硬盘就能随地启动了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo add-apt-repository ppa:yannubuntu/boot-repair &amp;&amp; sudo apt update<br>sudo apt install -y boot-repair &amp;&amp; boot-repair<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Goodbye World</title>
     <link href="/2024/05/24/Goodbye-World/"/>
     <url>/2024/05/24/Goodbye-World/</url>
